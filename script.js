@@ -61,6 +61,7 @@ function createGrid() {
 createGrid();
 
 submitGuess.onclick = () => {
+
   if (currentRow >= 6) return;
 
   const guess = guessInput.value.toUpperCase();
@@ -91,7 +92,6 @@ submitGuess.onclick = () => {
     feedback.textContent = "Solved! Alarm stopped.";
     alarmSound.pause();
     alarmSound.currentTime = 0;
-    alarmTriggered = false;
     return;
   }
 
@@ -101,7 +101,6 @@ submitGuess.onclick = () => {
     feedback.textContent = "Out of attempts! Alarm stopped.";
     alarmSound.pause();
     alarmSound.currentTime = 0;
-    alarmTriggered = false;
   }
 
   guessInput.value = "";
