@@ -17,8 +17,10 @@ let WORD = words[Math.floor(Math.random() * words.length)];
 
 // Set alarm
 setAlarmBtn.onclick = () => {
-  alarmTime = alarmInput.value;
+  alarmTime = alarmInput.value.slice(0,5);
   statusText.textContent = "Alarm set for " + alarmTime;
+};
+
 };
 
 // Check time every second
