@@ -95,8 +95,12 @@ submitGuess.onclick = () => {
 
   currentRow++;
 
-  if (currentRow === 6) {
-    feedback.textContent = "Out of attempts!";
+ if (currentRow === 6) {
+  feedback.textContent = "Out of attempts! Alarm stopped.";
+  alarmSound.pause();
+  alarmSound.currentTime = 0;
+}
+
   }
 
   guessInput.value = "";
