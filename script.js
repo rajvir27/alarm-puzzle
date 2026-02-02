@@ -1,10 +1,9 @@
-const setAlarmBtn = document.getElementById("setAlarm");
+const setAlarmBtn = document.getElementById("setAlarm"); 
 const alarmInput = document.getElementById("alarmTime");
 const statusText = document.getElementById("status");
 const alarmSound = document.getElementById("alarmSound");
 
 const puzzleBox = document.getElementById("puzzleBox");
-const wordDisplay = document.getElementById("wordDisplay");
 const guessInput = document.getElementById("guessInput");
 const submitGuess = document.getElementById("submitGuess");
 const feedback = document.getElementById("feedback");
@@ -19,8 +18,6 @@ let WORD = words[Math.floor(Math.random() * words.length)];
 setAlarmBtn.onclick = () => {
   alarmTime = alarmInput.value.slice(0,5);
   statusText.textContent = "Alarm set for " + alarmTime;
-};
-
 };
 
 // Check time every second
@@ -64,6 +61,8 @@ function createGrid() {
 createGrid();
 
 submitGuess.onclick = () => {
+  if (currentRow >= 6) return;
+
   const guess = guessInput.value.toUpperCase();
 
   if (guess.length !== 5) {
@@ -92,17 +91,17 @@ submitGuess.onclick = () => {
     feedback.textContent = "Solved! Alarm stopped.";
     alarmSound.pause();
     alarmSound.currentTime = 0;
+    alarmTriggered = false;
     return;
   }
 
   currentRow++;
 
- if (currentRow === 6) {
-  feedback.textContent = "Out of attempts! Alarm stopped.";
-  alarmSound.pause();
-  alarmSound.currentTime = 0;
-}
-
+  if (currentRow === 6) {
+    feedback.textContent = "Out of attempts! Alarm stopped.";
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
+    alarmTriggered = false;
   }
 
   guessInput.value = "";
