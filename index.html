@@ -1,36 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Puzzle Alarm Clock</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Alarm Puzzle</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<div class="app">
 <body>
   <div class="app">
+    <h1>Alarm Puzzle</h1>
+    <div class="alarm-box">
+      <input type="time" id="alarmTime">
+      <button id="setAlarm">Set Alarm</button>
+    </div>
+    <div id="status"></div>
+    
+    <audio id="alarmSound" src="alarm.mp3" loop></audio>
 
-<h1>Puzzle Alarm Clock ⏰</h1>
-
-<div class="alarm-box">
-    <input type="time" id="alarmTime">
-    <button id="setAlarm">Set Alarm</button>
-</div>
-
-<h2 id="status"></h2>
-
-<div id="puzzleBox" class="hidden">
-    <h2>Solve the Word to Stop Alarm</h2>
-   <div id="grid"></div>
-<input id="guessInput" maxlength="5">
-<button id="submitGuess">Submit</button>
-<p id="feedback"></p>
-
-</div>
-
-<audio id="alarmSound" loop>
-    <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg">
-</audio>
-
-<script src="script.js"></script>
-
+    <div id="puzzleBox" class="hidden">
+      <div id="grid"></div>
+      <input id="guessInput" maxlength="5">
+      <button id="submitGuess">Guess</button>
+      <div id="feedback"></div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
 </body>
 </html>
