@@ -19,7 +19,6 @@ setAlarmBtn.onclick = () => {
   alarmTime = alarmInput.value.slice(0,5);
   statusText.textContent = "Alarm set for " + alarmTime;
 };
-
 // Check time every second
 setInterval(() => {
   const now = new Date();
